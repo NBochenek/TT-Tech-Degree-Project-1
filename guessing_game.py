@@ -43,7 +43,7 @@ def start_game(win_count, best_score):
         play_again = input("Do you want to play again? Y/N?   ").lower()
 
         if play_again == "y":
-            win_count = win_count + 1
+            win_count += 1
             best_score = guess_count
             return start_game(win_count, best_score)
         elif play_again == "n":
