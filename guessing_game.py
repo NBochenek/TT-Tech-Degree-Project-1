@@ -22,17 +22,19 @@ def start_game(win_count, best_score):
     print(f"Your best score is {best_score}.")
     
     while user_guess != goal_number:
-        user_guess = input("Please guess a number between 1 and 10:     ")
-        user_guess = int(user_guess)
-        if user_guess > 10 or user_guess < 1:
-            print("Sorry, your guess is out of bounds. Please try again.")
-        elif user_guess > goal_number:
-            print("It's lower.")
-            guess_count += 1
-
-        elif user_guess < goal_number:
-            print("It's higher.")
-            guess_count += 1
+        try:
+            user_guess = int(input("Please guess a number between 1 and 10:     "))
+            if (user_guess > 10) or (user_guess < 1):
+                print("Sorry, your guess is out of bounds. Please try again.")
+            elif user_guess > goal_number:
+                print("It's lower.")
+                guess_count += 1
+    
+            elif user_guess < goal_number:
+                print("It's higher.")
+                guess_count += 1
+        except ValueError:
+            print("Error! Please enter a number with only Arabic numerals.")
 
     else:
         print("You win!", f"The number was {goal_number}.", f"You found it in {guess_count} guesses!.")
