@@ -24,7 +24,7 @@ def start_game(win_count, best_score):
     while user_guess != goal_number:
         user_guess = input("Please guess a number between 1 and 10:     ")
         user_guess = int(user_guess)
-        if user_guess > 10:
+        if user_guess > 10 or user_guess < 1:
             print("Sorry, your guess is out of bounds. Please try again.")
         elif user_guess > goal_number:
             print("It's lower.")
